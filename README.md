@@ -89,4 +89,4 @@ Example order:
 
 The original capstone asks for an e-commerce workflow where a customer can browse books, select a product, add it to a basket, complete a purchase and receive confirmation. This project keeps those core ideas but uses a smaller, original implementation.
 
-No real payment is connected. Checkout is only a demo flow.
+
