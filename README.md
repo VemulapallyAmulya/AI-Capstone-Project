@@ -1,6 +1,7 @@
 # ReadNest - Simple E-Bookstore
 
 ReadNest is a small full-stack bookstore project inspired by the IBM Cloud Fullstack Developer capstone requirements.
+<img width="1862" height="903" alt="Screenshot 2026-10-12 023435" src="https://github.com/user-attachments/assets/09c27aac-7b72-4404-8db2-3f6e76085b62" />
 
 ## What is included
 
@@ -88,5 +89,6 @@ Example order:
 ## Project idea
 
 The original capstone asks for an e-commerce workflow where a customer can browse books, select a product, add it to a basket, complete a purchase and receive confirmation. This project keeps those core ideas but uses a smaller, original implementation.
+
 
 
