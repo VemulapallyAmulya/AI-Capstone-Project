@@ -1,0 +1,23 @@
+ReadNest
+|
++-- backend
+|   +-- pom.xml
+|   +-- src/main/java/com/readnest
+|   |   +-- ReadNestApplication.java
+|   |   +-- book
+|   |   +-- order
+|   |   +-- config
+|   +-- src/main/resources/application.properties
+|
++-- frontend
+|   +-- package.json
+|   +-- index.html
+|   +-- src
+|       +-- main.jsx
+|       +-- App.jsx
+|       +-- style.css
+|
++-- database
+|   +-- postgresql.sql
+|
++-- README.md
