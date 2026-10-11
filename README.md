@@ -91,3 +91,10 @@ Example order:
 The original capstone asks for an e-commerce workflow where a customer can browse books, select a product, add it to a basket, complete a purchase and receive confirmation. This project keeps those core ideas but uses a smaller, original implementation.
 
 
+## Project Demonstration
+
+Watch the ReadNest application demonstration video.
+
+[▶ Watch ReadNest Demo Video on Google Drive](https://drive.google.com/file/d/1KB27SAImN5YaEsoO4lmjYWLgeDsM7ccJ/view?usp=drive_link)
+
+
