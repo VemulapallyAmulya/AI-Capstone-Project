@@ -2,7 +2,9 @@
 
 ReadNest is a full-stack bookstore capstone project for discovering books and trying a complete demo shopping flow. The storefront is built with React and Vite; a Spring Boot API serves a seeded book catalog and demo order references.
 
-[![ReadNest storefront](https://github.com/user-attachments/assets/09c27aac-7b72-4404-8db2-3f6e76085b62)](https://github.com/VemulapallyAmulya/AI-Capstone-Project)
+## Storefront preview
+
+![ReadNest bookstore homepage](docs/images/readnest-homepage.png)
 
 ## Features
 
