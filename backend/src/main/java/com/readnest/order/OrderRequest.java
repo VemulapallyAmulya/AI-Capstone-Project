@@ -6,6 +6,7 @@ public class OrderRequest {
 
     private String customerName;
     private String address;
+    private String paymentMethod;
     private List<OrderItem> items;
 
     public String getCustomerName() {
@@ -14,6 +15,10 @@ public class OrderRequest {
 
     public String getAddress() {
         return address;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
     }
 
     public List<OrderItem> getItems() {
@@ -26,6 +31,10 @@ public class OrderRequest {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
     }
 
     public void setItems(List<OrderItem> items) {

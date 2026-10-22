@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 680">
+  <defs><linearGradient id="paper" x2="1" y2="1"><stop stop-color="#dfbb89"/><stop offset="1" stop-color="#9d7459"/></linearGradient></defs>
+  <rect width="480" height="680" fill="url(#paper)"/>
+  <path d="M-20 430Q90 310 200 418T500 350V710H-20Z" fill="#d8d1a9" opacity=".54"/>
+  <circle cx="357" cy="286" r="113" fill="none" stroke="#fff0ce" stroke-opacity=".48" stroke-width="2"/>
+  <circle cx="357" cy="286" r="78" fill="none" stroke="#fff0ce" stroke-opacity=".4"/>
+  <path d="M357 173v226M244 286h226M277 206l160 160m0-160L277 366" stroke="#fff0ce" stroke-opacity=".32"/>
+  <path d="M48 51h384M48 629h384" stroke="#fff1d0" stroke-opacity=".72"/>
+  <text x="52" y="90" fill="#fff1d0" font-family="Arial,sans-serif" font-size="12" letter-spacing="4">SMALL STEPS. BIG IDEAS.</text>
+  <text x="52" y="218" fill="#fffaf0" font-family="Georgia,serif" font-size="63" font-weight="bold">Learn</text>
+  <text x="52" y="282" fill="#fffaf0" font-family="Georgia,serif" font-size="63" font-weight="bold">Better</text>
+  <text x="55" y="592" fill="#fff1d0" font-family="Arial,sans-serif" font-size="15" letter-spacing="3">ARUN DEV</text>
+  <text x="430" y="653" fill="#fff1d0" font-family="Arial,sans-serif" font-size="9" text-anchor="end" letter-spacing="2">READNEST EDITION</text>
+</svg>

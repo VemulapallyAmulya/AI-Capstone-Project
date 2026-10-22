@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 680">
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#d9b995"/><stop offset=".58" stop-color="#f0d6ac"/><stop offset="1" stop-color="#78846a"/></linearGradient>
+    <linearGradient id="sun"><stop stop-color="#fff0c4"/><stop offset="1" stop-color="#e6aa6f"/></linearGradient>
+  </defs>
+  <rect width="480" height="680" fill="url(#sky)"/>
+  <circle cx="352" cy="226" r="76" fill="url(#sun)" opacity=".92"/>
+  <path d="M0 376Q99 305 206 382T480 350V680H0Z" fill="#879078"/>
+  <path d="M0 435Q128 366 243 445T480 410V680H0Z" fill="#566e5b"/>
+  <path d="M0 510Q145 453 275 522T480 474V680H0Z" fill="#384f46"/>
+  <path d="M87 424q55-75 111 0M122 410q20-40 42 0" fill="none" stroke="#e9d3aa" stroke-width="3" opacity=".8"/>
+  <path d="M62 53h356M62 627h356" stroke="#f8edd4" stroke-opacity=".7"/>
+  <text x="65" y="91" fill="#f9efd9" font-family="Arial,sans-serif" font-size="12" letter-spacing="4">A STORY OF BEGINNINGS</text>
+  <text x="62" y="171" fill="#fff8e8" font-family="Georgia,serif" font-size="47" font-weight="bold">The Quiet</text>
+  <text x="62" y="223" fill="#fff8e8" font-family="Georgia,serif" font-size="47" font-weight="bold">Morning</text>
+  <text x="65" y="592" fill="#f8ecd3" font-family="Arial,sans-serif" font-size="15" letter-spacing="3">MAYA RAO</text>
+  <text x="418" y="653" fill="#f8ecd3" font-family="Arial,sans-serif" font-size="9" text-anchor="end" letter-spacing="2">READNEST EDITION</text>
+</svg>

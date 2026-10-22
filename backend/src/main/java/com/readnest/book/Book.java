@@ -1,9 +1,16 @@
 package com.readnest.book;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OrderColumn;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Book {
@@ -18,6 +25,13 @@ public class Book {
     private double price;
     private String description;
     private String cover;
+    private LocalDate publishedDate;
+    private String authorBio;
+    private String previousWorks;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @OrderColumn(name = "review_order")
+    private List<BookReview> reviews = new ArrayList<>();
 
     public Book() {
     }
@@ -58,5 +72,37 @@ public class Book {
 
     public String getCover() {
         return cover;
+    }
+
+    public LocalDate getPublishedDate() {
+        return publishedDate;
+    }
+
+    public List<BookReview> getReviews() {
+        return reviews;
+    }
+
+    public String getAuthorBio() {
+        return authorBio;
+    }
+
+    public String getPreviousWorks() {
+        return previousWorks;
+    }
+
+    public void setPublishedDate(LocalDate publishedDate) {
+        this.publishedDate = publishedDate;
+    }
+
+    public void setReviews(List<BookReview> reviews) {
+        this.reviews = new ArrayList<>(reviews);
+    }
+
+    public void setAuthorBio(String authorBio) {
+        this.authorBio = authorBio;
+    }
+
+    public void setPreviousWorks(String previousWorks) {
+        this.previousWorks = previousWorks;
     }
 }

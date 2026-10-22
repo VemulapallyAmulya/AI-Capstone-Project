@@ -65,6 +65,8 @@ Open the URL shown by Vite, normally:
 
 `http://localhost:5173`
 
+The Vite development and preview servers proxy `/api` requests to the backend on port `8080`. Keep the backend running while using the catalog and placing demo orders; the frontend can be opened using either `localhost` or `127.0.0.1`.
+
 ## API endpoints
 
 - GET `/api/books`
@@ -96,5 +98,4 @@ The original capstone asks for an e-commerce workflow where a customer can brows
 Watch the ReadNest application demonstration video.
 
 [▶ Watch ReadNest Demo Video on Google Drive](https://drive.google.com/file/d/1KB27SAImN5YaEsoO4lmjYWLgeDsM7ccJ/view?usp=drive_link)
-
 

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 680">
+  <defs><linearGradient id="earth" x2="0" y2="1"><stop stop-color="#a9bb91"/><stop offset="1" stop-color="#476959"/></linearGradient></defs>
+  <rect width="480" height="680" fill="url(#earth)"/>
+  <circle cx="245" cy="356" r="145" fill="#d7dfb2" fill-opacity=".28" stroke="#f3edc8" stroke-opacity=".64" stroke-width="2"/>
+  <path d="M109 340q43-91 96-36t-15 106q-39 35-81-7m147-78q47-70 88-34t-3 91q-38 40-83 11m-43 18q55-43 91 15t-24 72q-62 12-67-87M182 262q-17-74 37-91t69 61q-4 60-59 83" fill="#426d4c" stroke="#dce2b4" stroke-opacity=".72" stroke-width="3"/>
+  <path d="M242 235q-13 67 7 120t-1 111M153 334q53 5 90 21t91 0m-101-66q30 14 64 44t73 28" fill="none" stroke="#f2ebc7" stroke-opacity=".65" stroke-width="2"/>
+  <path d="M47 52h386M47 628h386" stroke="#eff0cf" stroke-opacity=".7"/>
+  <text x="51" y="91" fill="#f3f0d2" font-family="Arial,sans-serif" font-size="12" letter-spacing="4">A SMALL WORLD, IN OUR HANDS</text>
+  <text x="50" y="191" fill="#fff9df" font-family="Georgia,serif" font-size="43" font-weight="bold">The Green</text>
+  <text x="50" y="242" fill="#fff9df" font-family="Georgia,serif" font-size="49" font-weight="bold">Planet</text>
+  <text x="53" y="592" fill="#eef0d0" font-family="Arial,sans-serif" font-size="15" letter-spacing="3">KIRAN PAUL</text>
+  <text x="428" y="653" fill="#eef0d0" font-family="Arial,sans-serif" font-size="9" text-anchor="end" letter-spacing="2">READNEST EDITION</text>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 680">
+  <defs>
+    <linearGradient id="space" x2=".8" y2="1"><stop stop-color="#242544"/><stop offset=".54" stop-color="#4c527b"/><stop offset="1" stop-color="#bd8b8d"/></linearGradient>
+    <radialGradient id="planet"><stop stop-color="#ffe5ae"/><stop offset=".7" stop-color="#d68f83"/><stop offset="1" stop-color="#6c5277"/></radialGradient>
+  </defs>
+  <rect width="480" height="680" fill="url(#space)"/>
+  <g fill="#fff2d4"><circle cx="83" cy="171" r="2"/><circle cx="132" cy="264" r="2"/><circle cx="393" cy="132" r="2"/><circle cx="422" cy="365" r="2"/><circle cx="68" cy="395" r="1.6"/><circle cx="340" cy="227" r="1.5"/><circle cx="174" cy="124" r="1.4"/><circle cx="277" cy="349" r="1.6"/></g>
+  <circle cx="342" cy="303" r="97" fill="url(#planet)"/>
+  <ellipse cx="336" cy="315" rx="146" ry="34" transform="rotate(-18 336 315)" fill="none" stroke="#f3d4b2" stroke-opacity=".68" stroke-width="3"/>
+  <ellipse cx="336" cy="315" rx="149" ry="35" transform="rotate(-18 336 315)" fill="none" stroke="#f3d4b2" stroke-opacity=".22" stroke-width="10"/>
+  <path d="M0 482q90-86 180 0t300-24v222H0Z" fill="#252c49" opacity=".78"/>
+  <path d="M51 52h378M51 628h378" stroke="#e8d8d0" stroke-opacity=".65"/>
+  <text x="55" y="91" fill="#eddbd0" font-family="Arial,sans-serif" font-size="12" letter-spacing="4">A VOYAGE BEYOND</text>
+  <text x="52" y="189" fill="#fff2e7" font-family="Georgia,serif" font-size="43" font-weight="bold">Beyond the</text>
+  <text x="52" y="240" fill="#fff2e7" font-family="Georgia,serif" font-size="48" font-weight="bold">Stars</text>
+  <text x="55" y="592" fill="#eddbd0" font-family="Arial,sans-serif" font-size="15" letter-spacing="3">NINA JOSEPH</text>
+  <text x="426" y="653" fill="#eddbd0" font-family="Arial,sans-serif" font-size="9" text-anchor="end" letter-spacing="2">READNEST EDITION</text>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 680">
+  <defs><linearGradient id="night" x2="0" y2="1"><stop stop-color="#202d39"/><stop offset=".62" stop-color="#53615c"/><stop offset="1" stop-color="#bd8764"/></linearGradient></defs>
+  <rect width="480" height="680" fill="url(#night)"/>
+  <circle cx="350" cy="206" r="58" fill="#f0d6aa" opacity=".88"/>
+  <path d="M0 342h480v338H0Z" fill="#27383c"/>
+  <path d="M0 375h480M0 401h480" stroke="#d6ad7c" stroke-opacity=".52" stroke-width="2"/>
+  <path d="M40 420h398M69 436h342" stroke="#a98969" stroke-opacity=".7"/>
+  <path d="M135 390l23-67h168l35 67v148H135Z" fill="#1d292e" stroke="#d2ad7e" stroke-width="3"/>
+  <path d="M176 343h47v42h-47zm65 0h54v42h-54z" fill="#f3cd8c"/>
+  <path d="M153 411h190M153 472h190" stroke="#d2ad7e" stroke-width="3"/>
+  <circle cx="180" cy="542" r="20" fill="#111b20" stroke="#c6a47a" stroke-width="4"/><circle cx="317" cy="542" r="20" fill="#111b20" stroke="#c6a47a" stroke-width="4"/>
+  <path d="M47 53h386M47 628h386" stroke="#e8cfaa" stroke-opacity=".68"/>
+  <text x="51" y="91" fill="#f0d8b5" font-family="Arial,sans-serif" font-size="12" letter-spacing="4">A MYSTERY AFTER MIDNIGHT</text>
+  <text x="50" y="181" fill="#fff1d9" font-family="Georgia,serif" font-size="41" font-weight="bold">The Last</text>
+  <text x="50" y="228" fill="#fff1d9" font-family="Georgia,serif" font-size="41" font-weight="bold">Train Home</text>
+  <text x="52" y="592" fill="#f0d8b5" font-family="Arial,sans-serif" font-size="15" letter-spacing="3">VIKRAM SEN</text>
+  <text x="430" y="653" fill="#f0d8b5" font-family="Arial,sans-serif" font-size="9" text-anchor="end" letter-spacing="2">READNEST EDITION</text>
+</svg>

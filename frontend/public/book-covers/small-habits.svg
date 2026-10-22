@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 680">
+  <defs><linearGradient id="morning" x2="1" y2="1"><stop stop-color="#e5c89a"/><stop offset="1" stop-color="#bd8c70"/></linearGradient></defs>
+  <rect width="480" height="680" fill="url(#morning)"/>
+  <circle cx="241" cy="347" r="152" fill="#f4e6c9" fill-opacity=".15"/>
+  <circle cx="241" cy="347" r="112" fill="none" stroke="#fff3d6" stroke-opacity=".68" stroke-width="2"/>
+  <circle cx="241" cy="347" r="76" fill="none" stroke="#fff3d6" stroke-opacity=".6" stroke-width="2"/>
+  <circle cx="241" cy="347" r="39" fill="#fff0ca" fill-opacity=".76"/>
+  <path d="M241 195v57m0 190v57M89 347h57m190 0h57M134 240l41 41m132 132 41 41m0-214-41 41M175 413l-41 41" stroke="#fff3d6" stroke-opacity=".7" stroke-width="2"/>
+  <path d="M48 51h384M48 629h384" stroke="#fff0d5" stroke-opacity=".76"/>
+  <text x="52" y="91" fill="#fff2d9" font-family="Arial,sans-serif" font-size="12" letter-spacing="4">A PRACTICE, NOT A RACE</text>
+  <text x="52" y="203" fill="#fffaf0" font-family="Georgia,serif" font-size="60" font-weight="bold">Small</text>
+  <text x="52" y="267" fill="#fffaf0" font-family="Georgia,serif" font-size="60" font-weight="bold">Habits</text>
+  <text x="55" y="592" fill="#fff2d9" font-family="Arial,sans-serif" font-size="15" letter-spacing="3">RIYA DAS</text>
+  <text x="430" y="653" fill="#fff2d9" font-family="Arial,sans-serif" font-size="9" text-anchor="end" letter-spacing="2">READNEST EDITION</text>
+</svg>
