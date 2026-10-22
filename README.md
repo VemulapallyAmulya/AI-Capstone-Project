@@ -89,7 +89,3 @@ Example order request:
 backend/   Spring Boot application, REST API, catalog seeder, and H2 configuration
 frontend/  React storefront, checkout experience, styles, and bundled book covers
 ```
-
-## Project demonstration
-
-[▶ Watch the ReadNest demo video](https://drive.google.com/file/d/1KB27SAImN5YaEsoO4lmjYWLgeDsM7ccJ/view?usp=drive_link)
