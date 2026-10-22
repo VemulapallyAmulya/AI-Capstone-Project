@@ -1,6 +1,6 @@
-# ReadNest - Simple E-Bookstore
+# AI Capstone Project — ReadNest Bookstore
 
-ReadNest is a small full-stack bookstore project inspired by the IBM Cloud Fullstack Developer capstone requirements.
+AI Capstone Project is a full-stack bookstore experience built with React, Vite, Spring Boot, and H2. The customer-facing storefront keeps the ReadNest name.
 <img width="1862" height="903" alt="Screenshot 2026-10-12 023435" src="https://github.com/user-attachments/assets/09c27aac-7b72-4404-8db2-3f6e76085b62" />
 
 ## What is included
@@ -98,4 +98,3 @@ The original capstone asks for an e-commerce workflow where a customer can brows
 Watch the ReadNest application demonstration video.
 
 [▶ Watch ReadNest Demo Video on Google Drive](https://drive.google.com/file/d/1KB27SAImN5YaEsoO4lmjYWLgeDsM7ccJ/view?usp=drive_link)
-
