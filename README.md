@@ -88,4 +88,49 @@ Example order request:
 ```text
 backend/   Spring Boot application, REST API, catalog seeder, and H2 configuration
 frontend/  React storefront, checkout experience, styles, and bundled book covers
+.bob/      Bob AI skills for the Spec Kit workflow
+.github/   GitHub Copilot skills for the Spec Kit workflow
+.specify/  Spec Kit configuration, integrations, scripts, templates, and constitution
 ```
+
+## AI-assisted development
+
+This repository includes Spec Kit configuration (version `1.2.5.dev0`) for a
+specification-driven development workflow. The project is initialized with
+GitHub Copilot as its default integration and also includes Bob integration
+support. Their skills are provided in `.github/skills/` and `.bob/skills/`,
+respectively.
+
+The `.specify/` directory contains the integration manifests and settings,
+PowerShell helper scripts, specification/plan/task templates, and the project
+constitution in `.specify/memory/constitution.md`. A sample full-cycle workflow
+is defined in `.specify/workflows/speckit/workflow.yml`: specify a feature,
+review its specification, plan it, review the plan, generate tasks, and
+implement them. Use the Spec Kit commands available in your chosen editor
+integration; the installed Copilot and Bob skills provide guidance for the
+individual workflow steps.
+
+## Publishing to GitHub
+
+The project can be pushed to GitHub.com and IBM's GitHub Enterprise as separate
+remotes. Sign in to the appropriate account first, and do not put passwords or
+access tokens in the remote URL or commit them to the repository.
+
+For IBM GitHub, sign in through your organization's w3id/IBM Verify flow in the
+browser, then authenticate Git Credential Manager with its browser flow:
+
+```powershell
+git credential-manager github login --url https://github.ibm.com --browser
+```
+
+Add the IBM repository as a remote (once) and push the current branch:
+
+```powershell
+git remote add ibm https://github.ibm.com/amulyavemulapally101/ai-capstone.git
+git push -u ibm main
+```
+
+For another repository, replace the remote URL with its HTTPS clone URL. If a
+remote already exists, update it with `git remote set-url <remote> <url>` rather
+than adding it again. Git Credential Manager may reuse a saved sign-in; otherwise
+complete the browser authentication prompt.
