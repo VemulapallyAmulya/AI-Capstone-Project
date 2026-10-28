@@ -110,6 +110,14 @@ implement them. Use the Spec Kit commands available in your chosen editor
 integration; the installed Copilot and Bob skills provide guidance for the
 individual workflow steps.
 
+## VS Code extensions
+
+When you open this workspace in VS Code, it recommends the Python extension,
+Python Environments, and GitLens. Python Environments integrates with `uv` for
+Python package management; install the `uv` command-line tool separately if you
+want to use it. VS Code already includes core Git source-control support, while
+GitLens adds extra history and repository views.
+
 ## Publishing to GitHub
 
 The project can be pushed to GitHub.com and IBM's GitHub Enterprise as separate

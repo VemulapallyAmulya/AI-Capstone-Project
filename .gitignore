@@ -7,6 +7,9 @@ backend/target/
 *.mv.db
 *.trace.db
 .vscode/
+!.vscode/
+.vscode/*
+!.vscode/extensions.json
 .idea/
 .DS_Store
 Thumbs.db
