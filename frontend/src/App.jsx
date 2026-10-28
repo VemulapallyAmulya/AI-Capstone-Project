@@ -139,6 +139,11 @@ function App() {
   const [showCart, setShowCart] = useState(false);
   const [showCheckout, setShowCheckout] = useState(false);
   const [showOrders, setShowOrders] = useState(false);
+  const [showAccount, setShowAccount] = useState(false);
+  const [account, setAccount] = useState(null);
+  const [csrfToken, setCsrfToken] = useState("");
+  const [authReady, setAuthReady] = useState(false);
+  const [authError, setAuthError] = useState("");
   const [trackingOrder, setTrackingOrder] = useState(null);
   const [message, setMessage] = useState("");
   const [loadingBooks, setLoadingBooks] = useState(true);
@@ -183,6 +188,38 @@ function App() {
 
   useEffect(() => {
     loadBooks();
+  }, []);
+
+  useEffect(() => {
+    let active = true;
+
+    async function loadAccount() {
+      const csrfResponse = await fetch(`${API}/auth/csrf`, { credentials: "same-origin" });
+      if (!csrfResponse.ok) throw new Error("The account service is unavailable. Please try again later.");
+      const csrfData = await csrfResponse.json();
+      if (typeof csrfData.token !== "string" || !csrfData.token) {
+        throw new Error("The account service could not start a secure session.");
+      }
+
+      const accountResponse = await fetch(`${API}/auth/me`, { credentials: "same-origin" });
+      if (!accountResponse.ok) throw new Error("Your account status could not be loaded.");
+      const accountData = await accountResponse.json();
+      if (active) {
+        setCsrfToken(csrfData.token);
+        setAccount(accountData.user);
+      }
+    }
+
+    loadAccount()
+      .catch((error) => {
+        console.error("Could not load ReadNest account status.", error);
+        if (active) setAuthError(error.message || "The account service is unavailable.");
+      })
+      .finally(() => {
+        if (active) setAuthReady(true);
+      });
+
+    return () => { active = false; };
   }, []);
 
   useEffect(() => {
@@ -274,6 +311,30 @@ function App() {
         ? current.filter((id) => id !== bookId)
         : [...current, bookId]
     );
+  }
+
+  async function logout() {
+    if (!csrfToken) {
+      setAuthError("The secure session could not be confirmed. Refresh the page and try again.");
+      return;
+    }
+    setAuthError("");
+    try {
+      const response = await fetch(`${API}/auth/logout`, {
+        method: "POST",
+        credentials: "same-origin",
+        headers: { "X-CSRF-TOKEN": csrfToken }
+      });
+      if (!response.ok) throw new Error("Sign out failed. Please try again.");
+
+      setAccount(null);
+      const csrfResponse = await fetch(`${API}/auth/csrf`, { credentials: "same-origin" });
+      if (!csrfResponse.ok) throw new Error("You signed out, but a new secure session could not be started.");
+      const csrfData = await csrfResponse.json();
+      setCsrfToken(csrfData.token);
+    } catch (error) {
+      setAuthError(error.message || "Sign out failed. Please try again.");
+    }
   }
 
   function surpriseMe() {
@@ -377,6 +438,10 @@ function App() {
           <kbd>/</kbd>
         </label>
         <div className="header-actions">
+          <button className="account-button" aria-label={account ? `Account for ${account.displayName}` : "Sign in"} onClick={() => { setAuthError(""); setShowAccount(true); }}>
+            <span aria-hidden="true">{account ? "●" : "♙"}</span>
+            <span>{authReady ? account ? account.displayName : "Sign in" : "Account"}</span>
+          </button>
           <button className="saved-button" aria-label={showSaved ? "Show all books" : `Show reading list, ${favorites.length} items`} aria-pressed={showSaved}
             onClick={() => { setCategory("All books"); setSearch(""); setShowSaved((saved) => !saved); document.getElementById("collection")?.scrollIntoView({ behavior: "smooth" }); }}>
             <span aria-hidden="true">{showSaved ? "♥" : "♡"}</span><span className="saved-label">Reading list</span><span className="saved-count">{favorites.length}</span>
@@ -632,6 +697,8 @@ function App() {
         <Checkout
           cart={cart}
           total={total}
+          account={account}
+          csrfToken={csrfToken}
           onClose={() => setShowCheckout(false)}
           onDone={(order) => {
             setOrders((current) => [order, ...current]);
@@ -641,12 +708,133 @@ function App() {
           }}
         />
       )}
+      {showAccount && (
+        <AccountPanel
+          account={account}
+          csrfToken={csrfToken}
+          authReady={authReady}
+          error={authError}
+          onError={setAuthError}
+          onAuthenticated={(user) => {
+            setAccount(user);
+            setAuthError("");
+            setShowAccount(false);
+          }}
+          onLogout={logout}
+          onClose={() => setShowAccount(false)}
+        />
+      )}
     </div>
   );
 }
 
-function Checkout({ cart, total, onClose, onDone }) {
-  const [name, setName] = useState("");
+function AccountPanel({ account, csrfToken, authReady, error, onError, onAuthenticated, onLogout, onClose }) {
+  const [mode, setMode] = useState("login");
+  const [displayName, setDisplayName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [formError, setFormError] = useState("");
+
+  async function submit(event) {
+    event.preventDefault();
+    setFormError("");
+    onError("");
+    if (!authReady || !csrfToken) {
+      setFormError(error || "The account service is still connecting. Please try again.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const response = await fetch(`${API}/auth/${mode === "register" ? "register" : "login"}`, {
+        method: "POST",
+        credentials: "same-origin",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-TOKEN": csrfToken
+        },
+        body: JSON.stringify(mode === "register"
+          ? { displayName, email, password }
+          : { email, password })
+      });
+      const result = await response.json();
+      if (!response.ok) {
+        throw new Error(result.message || (response.status === 409
+          ? "An account with this email already exists."
+          : "We couldn’t sign you in. Check your details and try again."));
+      }
+      if (!result.user) throw new Error("The account service returned an invalid response.");
+      setPassword("");
+      onAuthenticated(result.user);
+    } catch (requestError) {
+      setFormError(requestError.message || "The account service is unavailable. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function signOut() {
+    setLoading(true);
+    setFormError("");
+    try {
+      await onLogout();
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return (
+    <div className="overlay account-overlay" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}>
+      <section className="account-panel" role="dialog" aria-modal="true" aria-labelledby="account-title">
+        <div className="panel-head">
+          <div><span className="eyebrow">YOUR READNEST ACCOUNT</span><h2 id="account-title">{account ? "Welcome back." : mode === "register" ? "Join the reading room." : "A shelf of your own."}</h2></div>
+          <button className="close-button" aria-label="Close account" onClick={onClose}>×</button>
+        </div>
+        {account ? (
+          <div className="account-profile">
+            <span className="account-avatar" aria-hidden="true">{account.displayName.slice(0, 1).toUpperCase()}</span>
+            <strong>{account.displayName}</strong>
+            <span>{account.email}</span>
+            <p>You’re signed in. Your reading list, bag, and demo order history remain saved in this browser.</p>
+            {(formError || error) && <p className="account-error" role="alert">{formError || error}</p>}
+            <button className="primary-button account-submit" type="button" onClick={signOut} disabled={loading}>
+              {loading ? "Signing out…" : "Sign out"} <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+        ) : (
+          <form className="account-form" onSubmit={submit}>
+            <p className="account-intro">{mode === "register" ? "Create an account to make yourself at home." : "Sign in to pick up where your next chapter begins."}</p>
+            {mode === "register" && (
+              <>
+                <label htmlFor="account-name">Your name</label>
+                <input id="account-name" autoComplete="name" required maxLength={100} value={displayName} onChange={(event) => setDisplayName(event.target.value)} />
+              </>
+            )}
+            <label htmlFor="account-email">Email address</label>
+            <input id="account-email" type="email" autoComplete="email" required maxLength={254} value={email} onChange={(event) => setEmail(event.target.value)} />
+            <label htmlFor="account-password">Password</label>
+            <input id="account-password" type="password" autoComplete={mode === "register" ? "new-password" : "current-password"} required minLength={mode === "register" ? 8 : undefined} maxLength={72} value={password} onChange={(event) => setPassword(event.target.value)} />
+            {(formError || error) && <p className="account-error" role="alert">{formError || error}</p>}
+            <button className="primary-button account-submit" type="submit" disabled={loading || !authReady}>
+              {loading ? "Please wait…" : mode === "register" ? "Create account" : "Sign in"} <span aria-hidden="true">↗</span>
+            </button>
+            <p className="account-switch">
+              {mode === "register" ? "Already have an account?" : "New to ReadNest?"}{" "}
+              <button type="button" onClick={() => { setMode(mode === "register" ? "login" : "register"); setFormError(""); onError(""); }}>
+                {mode === "register" ? "Sign in" : "Create an account"}
+              </button>
+            </p>
+          </form>
+        )}
+        <p className="account-security-note">Passwords are stored as secure hashes. This demo does not include email verification or password recovery.</p>
+      </section>
+    </div>
+  );
+}
+
+function Checkout({ cart, total, account, csrfToken, onClose, onDone }) {
+  const [name, setName] = useState(account?.displayName || "");
   const [address, setAddress] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -707,7 +895,7 @@ function Checkout({ cart, total, onClose, onDone }) {
     try {
       const response = await fetch(`${API}/orders`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", "X-CSRF-TOKEN": csrfToken },
         body: JSON.stringify({
           customerName: name.trim(),
           address: address.trim(),

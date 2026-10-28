@@ -21,6 +21,21 @@ ReadNest is a full-stack bookstore capstone project for discovering books and tr
 
 This project is a bookstore prototype. No payment provider is connected, no payment is collected, and no card, UPI, or bank credentials should be entered. Order tracking is simulated, and order history is stored in the current browser. Reviews and generated author profiles are sample demo content.
 
+## Customer accounts
+
+Use **Sign in** in the storefront header to log in or create a customer account
+with a name, email address, and password. Accounts are stored in the H2 database;
+passwords are hashed with BCrypt, and authentication uses a server-side session
+with CSRF protection. Passwords must be at least 8 characters and 72 UTF-8
+bytes. The demo does not
+include email verification or password recovery. Reading lists, bags, and demo
+order history remain local to the current browser and are not synced between
+accounts or devices.
+
+For production deployment, serve the app over HTTPS and set
+`SESSION_COOKIE_SECURE=true` so the session cookie is sent only over secure
+connections. The default is `false` for local HTTP development.
+
 ## Technology
 
 | Area | Stack |
